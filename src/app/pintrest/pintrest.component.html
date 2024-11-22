@@ -1,0 +1,10 @@
+<div class="parent">
+    <div class="child" *ngFor="let pin of pins">
+        <!-- <img src="{{pin.url}}" alt=""> -->
+        <img src="{{pin.download_url}}" alt="" class="img">
+        <p class="author">{{pin.author}}</p>
+        <a href="{{pin.download_url}}" target="blank" class="buton">download</a>
+
+    </div>
+
+</div>

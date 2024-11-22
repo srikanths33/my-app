@@ -1,0 +1,65 @@
+<h4 align="center">flipkart</h4>
+<!-- UNSHIFT -->
+<label for="">Name:</label>
+<input type="text" [(ngModel)]="name">
+<br>
+<label for="">price:</label>
+<input type="text" [(ngModel)]="price">
+<br>
+<label for="">Rating:</label>
+<input type="text" [(ngModel)]="rating">
+<br>
+<label for="">free delivary</label>
+<input type="radio" name="n1" [(ngModel)]="freedelivary" id="n2" value="true"><label for="n2">yes</label>
+<input type="radio"name="n2" [(ngModel)]="freedelivary" id="n3" value="false"><label for="n3">no</label>
+
+
+<button (click)="add()">Add to cart</button>
+<hr>
+<!-- filter -->
+<input type="text" placeholder="search" [(ngModel)]="term" (keyup)="search()">
+
+<button (click)="free()" class="btn btn-primary">onlyfreedelivary</button>
+<br>
+
+
+<!-- SORT -->
+<button class="btn btn-warning" (click)="pricehigh()">price high to low</button>
+<button class="btn btn-warning" (click)="pricelow()">price low to high</button>
+<button class="btn btn-warning" (click)="ratingh()">rating high to low</button>
+<button class="btn btn-warning" (click)="ratingl()">rating low to high</button><br><br>
+<!-- MAP -->
+<button class="btn btn-info" (click)="discount()">Apply 50% discount</button>
+<button class="btn btn-info" (click)="delivery()">Price with delivary charges</button>
+<br>
+<!-- REdUCE -->
+ <button (click)="total()">total price</button>
+ <button (click)="cart()">total cart items</button>
+
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>S NO</td>
+            <td>Product Name</td>
+            <td>Price</td>
+            <td>Rating</td>
+            <td>Free Delivary</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products let i=index">
+            <td>{{i+1}}</td>
+            <td [ngClass]="{'text-success':product.price<2000,'text-danger':product.price>2000}">{{product.productname}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.rating}}</td>
+            <td>{{product.freedelivary}}</td>
+            <td>
+                <button *ngIf="product.price<2000" class="btn btn-danger" (click)="delete(i)">delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

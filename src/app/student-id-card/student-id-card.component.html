@@ -1,0 +1,57 @@
+<input type="text" placeholder="search" [(ngModel)]="term" (keyup)="filter()">
+
+<select [(ngModel)]="column">
+    <option>name</option>
+    <option>phone</option>
+    <option>city</option>
+    <option>dob</option>
+    <option>email</option>
+
+</select>
+
+<select [(ngModel)]="order">
+    <option>asc</option>
+    <option>desc</option>
+
+</select>
+
+<button (click)="sort()">sort</button>
+
+<div class="main">
+    <div class="child" *ngFor="let id of studentid">
+        <div class="top">
+            <div class="left">
+                <img src="{{id.school_logo}}" alt="">
+
+            </div>
+            <div class="right">
+                <h3>{{id.school_name}}</h3>
+
+            </div>
+
+        </div>
+        <div class="middle">
+            <div class="middle1">
+                <p>NAME:{{id.name}}</p>
+                <p>PHONE:{{id.phone}}</p>
+                <p>DOB:{{id.dob}}</p>
+                <p>CITY:{{id.city}}</p>
+                <p>EMAIL:{{id.email}}</p>
+
+
+            </div>
+            <div class="middle2">
+                <img src="{{id.profile_picture}}" alt="" class="image1">
+                <h5 align="center">PRINCIPAL</h5>
+
+            </div>
+
+        </div>
+        <div class="bottom">
+            <p>SCHOOL CITY:{{id.school_city}}</p>SCHOOL PIN:{{id.school_pin}}
+            <button class="button" (click)="delete(id.id)">delete</button>
+
+        </div>
+
+    </div>
+</div>

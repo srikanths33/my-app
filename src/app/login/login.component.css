@@ -1,0 +1,56 @@
+
+.right{
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(red,violet,blue,yellow,green);
+    /* background-image: url("/assets/R.jpeg"); */
+    /* background-image:linear-gradient(); */
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+    form{
+    background-color: white;
+    width: 30%;
+    height: 40%;
+    text-align: center;
+}
+h2{
+    text-transform: uppercase;
+    color: red;
+    font-weight: 800;
+}
+input{
+    text-align:start;
+    text-transform: capitalize;
+    size: 40%;
+    width: 400px;
+    height: 30px;
+    margin-bottom: 10px;
+
+}
+button{
+    height: 10%;
+    width: 90%;
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px; 
+    border: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 10px black;
+
+}
+label{
+    text-align: center;
+    margin-left: 10px;
+}
+a{
+    font-weight: 600;
+    color: green;
+    text-decoration: none;
+}

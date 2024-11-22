@@ -1,0 +1,38 @@
+#recta{
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(30, 175, 204);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+.Circle{
+    height: 45%;
+    width: 30%;
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 15px black;
+    
+}
+button{
+    background-color: rgb(106, 106, 203);
+    border: 0;
+    color: white;
+    margin-right: 10px;
+    height: 30px;
+    width: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+h2{
+    color: blueviolet;
+}
+#num{
+    height: 20px;
+    width: 280px;
+}

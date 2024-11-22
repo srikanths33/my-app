@@ -1,0 +1,41 @@
+<p>directives works!</p>
+
+<h5 *ngFor="let age of ages">{{age}}</h5>
+
+<ul>
+    <li *ngFor="let state of states">{{state}}</li>
+</ul>
+
+<select name="" id="">
+    <option *ngFor="let state of states">{{state}}</option>
+</select>
+
+<h2 *ngFor="let product of products">{{product.name}} price is {{product.price}}</h2>
+
+<table border="1" class="table table-dark">
+    <thead>
+        <tr>
+
+        <th>SNO</th>
+        <th>Name</th>
+        <th>price</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{product.name | uppercase }}</td>
+            <!-- <td>{{product.price}}</td> -->
+             <!-- <td [ngStyle]="{'color':product.price<3500 ? 'green': 'red'}">{{product.price}}</td> -->
+            <td [ngClass]="{'green' : product.price<1000, 'red': product.price>1000}">{{product.price}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1 *ngIf="false">Hello</h1>
+<h1 *ngIf="true">welcome</h1>
+
+<h2>{{today}}</h2>
+<h2>{{today | date}}</h2>
+<h3>{{today | date:"dd/MM/yyyy"}}</h3>
+<h3>{{today | date:"dd-MM-yy"}}</h3>
