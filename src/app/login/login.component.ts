@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,19 @@ export class LoginComponent {
       email:new FormControl(),
       password:new FormControl(),
 
-    }
-  )
+    })
+
+    constructor(private _loginservice:LoginService){}
 
   login(){
-    console.log(this.loginform)
+    console.log(this.loginform);
+    this._loginservice.login(this.loginform.value).subscribe(
+      (data:any)=>{
+        alert("login succesfull");
+      },
+      (err:any)=>{
+        alert("Invalid credntials");
+      }
+    )
   }
 }
