@@ -30,6 +30,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { StudentIdCardComponent } from './student-id-card/student-id-card.component';
 import { CreateStudentidComponent } from './create-studentid/create-studentid.component';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { CreatestudentFormComponent } from './createstudent-form/createstudent-form.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -63,6 +64,7 @@ const routes: Routes = [
     {path:"student",component:StudentIdCardComponent},
     {path:"studentid",component:CreateStudentidComponent},
     {path:"user",component:CreateUserComponent},
+    {path:"studentform",component:CreatestudentFormComponent},
     {path:'',component:HomeComponent}
 
 

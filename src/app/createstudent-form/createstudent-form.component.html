@@ -1,0 +1,122 @@
+<form action="" [formGroup]="studentform">
+    <label for="">Name:</label>
+    <input type="text" formControlName="name">
+    <div *ngIf="studentform.get('name')?.touched && studentform.get('name')?.invalid">
+        <p class="error" *ngIf="studentform.get('name')?.errors?.['required']">Name is required</p>
+        <p class="error" *ngIf="studentform.get('name')?.errors?.['minlength']">Minimum 3 characters required</p>
+        <p class="error" *ngIf="studentform.get('name')?.errors?.['maxlength']">Maximum 10 characters only</p>
+
+    </div>
+    <br>
+    <label for="">class:</label>
+    <input type="number" formControlName="class">
+    <div *ngIf="studentform.get('class')?.touched && studentform.get('class')?.invalid">
+        <p class="error" *ngIf="studentform.get('class')?.errors?.['required']">class is required</p>
+    </div>
+    <br>
+    <label for="">FatherName:</label>
+    <input type="text" formControlName="fatherName">
+    <div *ngIf="studentform.get('fatherName')?.touched && studentform.get('fatherName')?.invalid">
+        <p class="error" *ngIf="studentform.get('fatherName')?.errors?.['required']">fathername is required</p>
+    </div>
+    <br>
+    <label for="">Email:</label>
+    <input type="email" formControlName="email">
+    <div *ngIf="studentform.get('email')?.touched && studentform.get('email')?.invalid">
+        <p class="error" *ngIf="studentform.get('email')?.errors?.['required']">Email reqired</p>
+        <p class="error" *ngIf="studentform.get('email')?.errors?.['email']">Invalid email</p>
+    </div>
+    <br>
+    <label for="">Dob:</label>
+    <input type="date" formControlName="dob">
+    <div *ngIf="studentform.get('dob')?.touched && studentform.get('dob')?.invalid">
+        <p class="error" *ngIf="studentform.get('dob')?.errors?.['required']">date of birth is required</p>
+    </div>
+    <br>
+
+    <div formGroupName="addressLine">
+        <label for="">City:</label>
+        <input type="text" formControlName="city">
+        <div *ngIf="studentform.get('addressLine')?.get('city')?.touched && studentform.get('addressLine')?.get('city')?.invalid">
+            <p class="error" *ngIf="studentform.get('addressLine')?.get('city')?.errors?.['required']">city is required</p>
+        </div>
+        <br>
+        <label for="">state:</label>
+        <input type="text" formControlName="state">
+        <div *ngIf="studentform.get('addressLine')?.get('state')?.touched && studentform.get('addressLine')?.get('state')?.invalid">
+            <p class="error" *ngIf="studentform.get('addressLine')?.get('state')?.errors?.['required']">state is required</p>
+        </div>
+        <br>
+        <label for="">pincode:</label>
+        <input type="number" formControlName="pincode">
+
+        <div *ngIf="studentform.get('addressLine')?.get('pincode')?.touched && studentform.get('addressLine')?.get('pincode')?.invalid">
+            <p class="error" *ngIf="studentform.get('addressLine')?.get('pincode')?.errors?.['required']">Pincode is mandatory</p>
+            <p class="error" *ngIf="studentform.get('addressLine')?.get('pincode')?.errors?.['min']">Pincode must be 6 digits</p>
+            <p class="error" *ngIf="studentform.get('addressLine')?.get('pincode')?.errors?.['max']">Pincode must be 6 digits</p>
+          </div>
+        <br>
+    </div>
+
+    <div>
+        <label for="">Type:</label>
+        <input type="radio" formControlName="type" value="dayScholor">
+        <label for="">Day scholer:</label>
+        <input type="radio" formControlName="type" value="residential">
+        <label for="">Residential:</label>
+    </div>
+    <div *ngIf="studentform.get('type')?.value=='dayScholor'">
+        <label for="">Bus fee:</label>
+        <input type="number" formControlName="busfee">
+        <br>
+    </div>
+    <div *ngIf="studentform.get('type')?.value=='residential'">
+        <label for="">Residential fee:</label>
+        <input type="number" formControlName="hostelfee">
+    </div>
+
+    <label for="">Marks:</label>
+    <button (click)="addmarks()">Add marks</button>
+
+    <br><br>
+
+    <div formArrayName="marks">
+        <div *ngFor="let mark of marksFormArray.controls;let i=index">
+            <div formGroupName="{{i}}">
+                <h2>Marks</h2>
+
+                <label for="">class:</label>
+                <input type="number" formControlName="class">
+                <div *ngIf="mark.get('class')?.touched && mark.get('class')?.invalid">
+                    <p  class="error" *ngIf="mark.get('class')?.errors?.['required']">Calss is reqired</p>
+                    <p  class="error" *ngIf="mark.get('class')?.errors?.['min']">Calss must be above 0</p>
+                </div>
+                <br>
+                <label for="">year:</label>
+                <input type="number" formControlName="year" >
+                <div *ngIf="mark.get('year')?.touched && mark.get('year')?.invalid">
+                    <p  class="error" *ngIf="mark.get('class')?.errors?.['required']">year reqired</p>
+                    <p  class="error" *ngIf="mark.get('class')?.errors?.['min']">year above 1900</p>
+                    <p  class="error" *ngIf="mark.get('class')?.errors?.['max']">year must be current year</p>
+
+                </div>
+                <br>
+                <label for="">Percantage:</label>
+                <input type="number" formControlName="percantage">
+                <div *ngIf="mark.get('percantage')?.touched && mark.get('percantage')?.invalid">
+                    <p  class="error" *ngIf="mark.get('percantage')?.errors?.['required']">percantage reqired</p>
+                    <p  class="error" *ngIf="mark.get('percantage')?.errors?.['min']">percantage above 0</p>
+                    <p  class="error" *ngIf="mark.get('percantage')?.errors?.['max']">percantage must be below 100</p>
+                </div>
+                <br>
+
+                <button class="btn btn-danger" (click)="deletemarks(i)">delete</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    
+
+    <button (click)="submit()">submit</button>
+
+</form>

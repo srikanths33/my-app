@@ -45,6 +45,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { CreatestudentFormComponent } from './createstudent-form/createstudent-form.component';
 
 
 
@@ -81,7 +82,8 @@ import { CreateUserComponent } from './create-user/create-user.component';
     StudentIdCardComponent,
     CreateStudentidComponent,
     DummydisplayComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    CreatestudentFormComponent
   ],
   imports: [
     BrowserModule,
