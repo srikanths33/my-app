@@ -1,12 +1,16 @@
 
 <div class="right">
-    <form action="">
+    <form [formGroup]="loginform">
     <h2>
         Account login
     </h2>
-    <input type="text" placeholder="user name">
-    <input type="password" placeholder="password">
-    <button routerLink="/dashboard">login</button>
+    <label for="">Email:</label>
+    <input type="text" placeholder="user name" formControlName="email">
+    <br>
+    <label for="">Password:</label>
+    <input type="password" placeholder="password" formControlName="password">
+    <br>
+    <button (click)="login()">login</button>
     <br>
     <label for="">forgot
         <a href="">username/password</a>
